@@ -3,7 +3,6 @@ package com.intren.auth.security.service;
 import com.intren.auth.security.jwt.JwtProvider;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
