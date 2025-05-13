@@ -1,6 +1,5 @@
 package com.intren.auth.user.application.dto.response;
 
-import com.intren.auth.user.domain.model.User;
 import lombok.Getter;
 
 import java.util.List;

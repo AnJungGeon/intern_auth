@@ -1,7 +1,5 @@
 package com.intren.auth.user.domain.exception;
 
-import com.intren.auth.common.exception.BusinessException;
-import com.intren.auth.common.exception.CommonErrorCode;
 import com.intren.auth.common.exception.ErrorCode;
 import org.springframework.http.HttpStatus;
 
