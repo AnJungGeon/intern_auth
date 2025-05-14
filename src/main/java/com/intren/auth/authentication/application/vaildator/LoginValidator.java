@@ -16,7 +16,7 @@ public class LoginValidator {
     private final PasswordEncoderUtil passwordEncoderUtil;
 
     public User validateLogin(String username, String password) {
-        User user = userRepository.findByUsernmae(username);
+        User user = userRepository.findByUsername(username);
 
         if(!passwordEncoderUtil.isMatch(password, user.getPassword())){
             throw new AuthException(AuthErrorCode.INVALID_CREDENTIALS);
