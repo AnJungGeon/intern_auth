@@ -3,12 +3,10 @@ package com.intren.auth.security.exception;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.intren.auth.common.exception.ErrorResponse;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
@@ -22,7 +20,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
     public void handle(
             HttpServletRequest request,
             HttpServletResponse response,
-            AccessDeniedException accessDeniedException) throws IOException, ServletException {
+            AccessDeniedException accessDeniedException) throws IOException{
         String message = getAccessDeniedMessage();
 
         ErrorResponse errorResponse = new ErrorResponse(SecurityErrorCode.ACCESS_DENIED, message);
