@@ -8,7 +8,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,7 +27,7 @@ public class UserController {
     }
 
 
-    @Secured("ADMIN")
+    @PreAuthorize("hasRole('ADMIN')")
     @PatchMapping("/admin/users/{userId}/roles")
     public ResponseEntity<UpdateUserRolesResponseDto> updateUserRoles(
             @Valid @PathVariable Long userId){
