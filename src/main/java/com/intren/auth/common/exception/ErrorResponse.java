@@ -9,4 +9,8 @@ public class ErrorResponse {
     public ErrorResponse(ErrorCode errorCode){
         this.error = new ErrorDetail(errorCode.name(), errorCode.getMessage());
     }
+
+    public ErrorResponse(ErrorCode errorCode, String message){
+        this.error = new ErrorDetail(errorCode.name(), message);
+    }
 }

@@ -53,6 +53,10 @@ public class User extends BaseEntity {
         );
     }
 
+    public void updateUserRoles() {
+        this.role = UserRole.ADMIN;
+    }
+
 
 
 }

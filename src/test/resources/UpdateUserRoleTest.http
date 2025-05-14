@@ -1,0 +1,6 @@
+### 권한 변경 요청
+PATCH http://localhost:8080/admin/users/2/roles
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3NDcyMjUwMjEsImV4cCI6MTc0NzIyODYyMX0.fFaf0XZ5JtgzjmG6bEioF1U2jNILdUgUL18hxIsGC8P
+
+###

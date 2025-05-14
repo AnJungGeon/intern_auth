@@ -1,19 +1,17 @@
-package com.intren.auth.user.domain.exception;
+package com.intren.auth.security.exception;
 
 import com.intren.auth.common.exception.ErrorCode;
 import org.springframework.http.HttpStatus;
 
-public enum UserErrorCode implements ErrorCode {
-
-    USER_ALREADY_EXISTS(HttpStatus.CONFLICT, "이미 가입된 사용자입니다."),
-    USER_NOT_FOUND(HttpStatus.NOT_FOUND , "존재 하지 않는 사용자입니다."),
-    ACCESS_DENIED(HttpStatus.UNAUTHORIZED, "접근 권한이 없습니다.");
+public enum SecurityErrorCode implements ErrorCode {
+    ACCESS_DENIED(HttpStatus.FORBIDDEN, "접근 권한이 없습니다."),
+    INVALID_TOKEN(HttpStatus.UNAUTHORIZED, "유효하지 않은 인증 토큰입니다.");
 
 
     private final HttpStatus httpStatus;
     private final String message;
 
-    UserErrorCode(HttpStatus httpStatus, String message) {
+    SecurityErrorCode(HttpStatus httpStatus, String message) {
         this.httpStatus = httpStatus;
         this.message = message;
     }
@@ -28,5 +26,3 @@ public enum UserErrorCode implements ErrorCode {
         return message;
     }
 }
-
-
