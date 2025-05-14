@@ -24,11 +24,23 @@ public class JwtProvider {
 
     public String generateToken(Long userId, String roles) {
         Date now = new Date();
-        Date expiry = new Date(now.getTime() + 1000 * 60 * 60 * 2);
+        Date expiry = new Date(now.getTime() + jwtProperties.getAccessExp());
 
         return Jwts.builder()
                 .subject(String.valueOf(userId))
                 .claim("role", roles)
+                .issuedAt(now)
+                .expiration(expiry)
+                .signWith(key, Jwts.SIG.HS256)
+                .compact();
+    }
+
+    public String generateRefreshToken(Long userId) {
+        Date now = new Date();
+        Date expiry = new Date(now.getTime() + jwtProperties.getRefreshExp());
+
+        return Jwts.builder()
+                .subject(String.valueOf(userId))
                 .issuedAt(now)
                 .expiration(expiry)
                 .signWith(key, Jwts.SIG.HS256)

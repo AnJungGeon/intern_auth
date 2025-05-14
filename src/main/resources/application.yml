@@ -19,6 +19,12 @@ spring:
       enabled: true
       path: /h2-console
 
+jwt:
+  secret-key: Zj9$wQmE6vNp#TgYxR2uL1bC7aVh0XzK
+  access-exp: 3600000
+  refresh-exp: 1209600000
+
+
 server:
   port: 8080
 

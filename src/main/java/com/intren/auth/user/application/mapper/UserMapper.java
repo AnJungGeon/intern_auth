@@ -9,10 +9,10 @@ import java.util.List;
 
 public class UserMapper {
 
-    public static User toEntity(SignupRequestDto requestDto) {
+    public static User toEntity(SignupRequestDto requestDto, String encodedPassword) {
         return User.of(
                 requestDto.getUsername(),
-                requestDto.getPassword(),
+                encodedPassword,
                 requestDto.getNickname()
         );
     }

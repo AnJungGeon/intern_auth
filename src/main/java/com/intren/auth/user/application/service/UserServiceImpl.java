@@ -1,5 +1,6 @@
 package com.intren.auth.user.application.service;
 
+import com.intren.auth.authentication.infrastructure.password.PasswordEncoderUtil;
 import com.intren.auth.user.application.dto.request.SignupRequestDto;
 import com.intren.auth.user.application.dto.response.SignupResponseDto;
 import com.intren.auth.user.application.mapper.UserMapper;
@@ -21,7 +22,8 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public SignupResponseDto signup(SignupRequestDto requestDto) {
         duplicateUserValidator.validateDuplicateUser(requestDto.getUsername());
-        User user = UserMapper.toEntity(requestDto);
+        String encoded = PasswordEncoderUtil.encode(requestDto.getPassword());
+        User user = UserMapper.toEntity(requestDto, encoded);
         userRepository.save(user);
 
         return UserMapper.toResponseDto(user);
