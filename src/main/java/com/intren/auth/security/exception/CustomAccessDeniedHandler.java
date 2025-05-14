@@ -35,12 +35,15 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
     private String getAccessDeniedMessage() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        if(authentication != null&& authentication.isAuthenticated()) {
-            boolean isAdmin = authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"));
-            if(!isAdmin) {
-                return "관리자 권한이 필요한 요청입니다. 접근 권한이 없습니다";
+        if (authentication != null && authentication.isAuthenticated()) {
+            for (var authority : authentication.getAuthorities()) {
+                if ("ROLE_ADMIN".equals(authority.getAuthority())) {
+                    return "접근 권한이 없습니다.";
+                }
             }
+            return "관리자 권한이 필요한 요청입니다. 접근 권한이 없습니다";
         }
+
         return "접근 권한이 없습니다.";
     }
 }
