@@ -1,0 +1,8 @@
+###로그인 성공
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "JIN HO",
+  "password": "12341230"
+}

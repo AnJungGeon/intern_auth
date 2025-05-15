@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: auth
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    driver-class-name: org.h2.Driver
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+jwt:
+  secret-key: ${JWT_SECRET_KEY}
+  access-exp: ${JWT_ACCESS_EXP:3600000}
+  refresh-exp: ${JWT_REFRESH_EXP:1209600000}
+
+server:
+  port: ${SERVER_PORT:8080}
